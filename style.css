@@ -1,0 +1,314 @@
+/* ---------- Tokens ---------- */
+:root {
+  --lacquer: #8C1D18;
+  --lacquer-deep: #6E1712;
+  --ink: #1B1712;
+  --paper: #F3E9D3;
+  --paper-dim: #E7DABB;
+  --jade: #2F5D50;
+  --gold: #C79A45;
+  --cream-text: #F6EFDD;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+}
+
+a { color: inherit; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.75rem;
+}
+
+.eyebrow-dark { color: var(--lacquer); }
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+  background: var(--ink);
+  color: var(--cream-text);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand-mark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-left: 1.25rem;
+  color: var(--cream-text);
+  opacity: 0.85;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  background: radial-gradient(120% 140% at 15% -10%, var(--lacquer) 0%, var(--lacquer-deep) 70%);
+  color: var(--cream-text);
+  padding: 4.5rem 1.5rem 5rem;
+  text-align: left;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 11vw, 4.2rem);
+  line-height: 0.98;
+  margin: 0 0 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-tagline {
+  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--gold);
+  margin: 0 0 2.2rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.seal {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.5rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  transform: rotate(-8deg);
+  opacity: 0.9;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border-radius: 3px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-cream {
+  background: var(--cream-text);
+  color: var(--ink);
+}
+
+.btn-cream:hover { opacity: 0.92; }
+
+.btn-outline {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+
+/* ---------- Menu / Ticket ---------- */
+.menu {
+  padding: 4rem 1.5rem 4.5rem;
+  text-align: center;
+}
+
+.menu h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin: 0 0 2.5rem;
+}
+
+.ticket {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  background: #FFFDF6;
+  border: 1px solid #DED0AA;
+  border-radius: 2px;
+  padding: 2.2rem 1.5rem 1.5rem;
+  text-align: left;
+  box-shadow: 0 18px 40px -20px rgba(27, 23, 18, 0.35);
+}
+
+.ticket::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-image: radial-gradient(circle, var(--paper) 3.5px, transparent 3.6px);
+  background-size: 18px 18px;
+  background-position: 8px -6px;
+}
+
+.ticket-staple {
+  position: absolute;
+  top: 14px;
+  left: 24px;
+  width: 22px;
+  height: 8px;
+  background: #B9B0A0;
+  border-radius: 2px;
+  transform: rotate(-4deg);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+}
+
+.ticket-list {
+  list-style: none;
+  margin: 0.5rem 0 1rem;
+  padding: 0;
+}
+
+.ticket-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed #DED0AA;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.ticket-row.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ticket-row:last-child { border-bottom: none; }
+
+.item-name {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dots {
+  flex: 1;
+  border-bottom: 1px dotted #B7A97F;
+  transform: translateY(-4px);
+}
+
+.item-price {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--jade);
+  white-space: nowrap;
+}
+
+.ticket-note {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #9A8C64;
+  text-align: center;
+  margin: 0.5rem 0 0;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Location ---------- */
+.location {
+  background: var(--ink);
+  color: var(--cream-text);
+  padding: 4rem 1.5rem 4.5rem;
+  text-align: center;
+}
+
+.location h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin: 0 0 1.5rem;
+}
+
+.location address {
+  font-style: normal;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0 0 2rem;
+  color: var(--paper-dim);
+}
+
+.location-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.location .btn-outline {
+  border-color: var(--paper-dim);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--ink);
+  color: var(--paper-dim);
+  text-align: center;
+  padding: 1.25rem 1.5rem 2rem;
+  font-size: 0.78rem;
+  border-top: 1px solid rgba(246, 239, 221, 0.12);
+}
+
+.site-footer p { margin: 0; }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 640px) {
+  .hero { padding: 6rem 3rem 6.5rem; }
+  .menu, .location { padding-left: 3rem; padding-right: 3rem; }
+}
